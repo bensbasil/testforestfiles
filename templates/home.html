@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FWI Prediction</title>
+</head>
+<body>
+    <div class="login">
+         <h1>FWI Prediction</h1>
+         <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <input type="number" step="any" name="Temperature" placeholder="Temperature (°C)" required="required"/><br>
+            <input type="number" step="any" name="RH" placeholder="Relative Humidity (%)" required="required"/><br>
+            <input type="number" step="any" name="Ws" placeholder="Wind Speed (km/h)" required="required"/><br>
+            <input type="number" step="any" name="Rain" placeholder="Rain (mm)" required="required"/><br>
+            <input type="number" step="any" name="FFMC" placeholder="FFMC Index" required="required"/><br>
+            <input type="number" step="any" name="DMC" placeholder="DMC Index" required="required"/><br>
+            <input type="number" step="any" name="ISI" placeholder="ISI Index" required="required"/><br>
+            <input type="number" step="any" name="classes" placeholder="Classes (0 or 1)" required="required"/><br>
+            <input type="number" step="any" name="Region" placeholder="Region" required="required"/><br>
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+         </form>
+
+         {% if results %}
+            <h2>The FWI prediction is: {{results}}</h2>
+         {% endif %}
+    </div>
+</body>
+</html>
